@@ -1,16 +1,17 @@
-.accordion-button{
-    height:50px;
-    color: white;
-    font-weight: bold;
-}
 @media screen and (max-width: 640px) {
       .accordion-button{
       height:70px;
       }
 }
 
+.accordion-button{
+  height:50px;
+  color: white;
+  font-weight: bold;
+}
+
 .accordion-button:enabled{
-  color: white !important;
+color: white !important;
 }
 
 video{
@@ -36,4 +37,8 @@ img{
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+#filters{
+  padding-bottom:2em;
 }
