@@ -20,8 +20,22 @@ $(document).ready(function ()
       var elem = "<div class=\"accordion-item " + categories.join(' ') + "\"> \
         <h2 class=accordion-header id=" + _id + ">  \
           <button class=\"accordion-button collapsed\" type=button data-bs-toggle=collapse \
-          data-bs-target=#" + _contentid + " aria-expanded=false aria-controls=" + _contentid +  "> " +
-          $(naturevids[v]).attr('title') + " </button> </h2> \
+          data-bs-target=#" + _contentid + " aria-expanded=false aria-controls=" + _contentid +  ">" ;
+
+        if($(naturevids[v]).attr('class').trim().split(/\s+/).length === 2)
+        {
+            console.log("pass1")
+            if($(naturevids[v]).hasClass("earth")) elem += "<img class=icon src='media/earth.png'>";
+            else if ($(naturevids[v]).hasClass("fauna")) elem += "<img class=icon src='media/fauna.png'>";
+            else if ($(naturevids[v]).hasClass("flora")) elem += "<img class=icon src='media/flora.png'>";
+        }
+        else if ($(naturevids[v]).attr('class').trim().split(/\s+/).length > 2)
+        {
+            if ($(naturevids[v]).hasClass("flora") && $(naturevids[v]).hasClass("fauna")) elem += "<img class=icon src='media/faunaandflora.png'>";
+        }
+
+
+        elem += $(naturevids[v]).attr('title') + " </button> </h2> \
           <div id=\"" + _contentid + "\" class=\"accordion-collapse collapse\" aria-labelledby=" + _id + "> \
             <div class=accordion-body data-src=" + $(naturevids[v]).attr('link') + ">  <br>" + naturevids[v].innerHTML + "</div> </div> \
         </div>";
@@ -44,7 +58,7 @@ $(document).ready(function ()
     });
 
 
-      /////////////////////////filters///////////////////////////
+      ///////////////////////// filters ///////////////////////////
       cats = [];
       for (var s = 0; s < nbofvids; s++) {
           // getting tags

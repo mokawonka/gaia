@@ -42,3 +42,11 @@ img{
 #filters{
   padding-bottom:2em;
 }
+
+.icon{
+  height:45px;
+  width: 45px;
+  margin:0;
+  margin-right:15px;
+  padding:7px;
+}
